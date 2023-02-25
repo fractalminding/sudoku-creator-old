@@ -1,0 +1,185 @@
+@font-face {
+    font-family: Roboto-Light;
+    src: url(roboto/Roboto-Light.ttf)
+}
+@font-face {
+    font-family: Comfortaa;
+    src: url(Comfortaa-Light.ttf)
+}
+
+body {
+    font-family: Roboto-Light;
+    margin: 0px;
+}
+
+#container {
+    white-space: nowrap;
+}
+#main {
+    display: inline-block;
+}
+
+#board-canvas {
+    display: inline-block;
+    width: 568;
+    height: 568;
+    margin: 20px;
+}
+
+#change-panel, #modes-panel,
+#actions-panel {
+    display: block;
+    text-align:left;
+    user-select:none;
+    border: 2px solid #6299ae;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    width: 150px;
+}
+
+#change-panel-button {
+    background: #6299ae;
+    padding: 10px;
+    margin-top: 10px;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+}
+
+#first-to-change, #second-to-change {
+    width: 60px;
+    height: 40px;
+    border: 2px solid #6299ae;
+    border-radius: 15px;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+.arrow {
+    background:#358b67;
+    display: inline-block;
+    padding: 5px 15px;
+    margin: 10px 0px 0px;
+    border-radius: 15px;
+    color: white;
+}
+
+#tools-panel, #down-panel {
+    font-family: "Comfortaa";
+}
+
+#tools-panel {
+    display:inline-block;
+    vertical-align:top;
+    margin: 20px;
+}
+
+#modes-panel {
+    display: inline-block;
+    padding-top: 0px;
+}
+
+.mode-button {
+    margin: 10px 0px 0px;
+    background: #c5b0b0;
+    padding: 10px;
+    color: white;
+    border-radius: 15px;
+}
+.active-mode-button {
+    background: #66cd6a;
+}
+
+#down-panel {
+    display:block;
+    margin: 0px 0px 0px 20px;
+    user-select: none;
+}
+
+#info {
+    display: inline-block;
+    border: 2px solid #6299ae;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+#numpad {
+    display: none;
+    border: 2px solid #6299ae;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+#numpad > div {
+    display: inline-block;
+}
+
+.numpad-num {
+    background:#b4b8e5;
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 15px;
+    color: white;
+}
+.active-num {
+    background:#49b19e;
+}
+
+#wrote {
+    display:inline-block;
+    margin: 0px 10px 0px 0px;
+    background: #5b5e90;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    width: 30px;
+    text-align:center;
+}
+
+#check-text {
+    display:inline-block;
+    margin: 0px 0px 0px 0px;
+    background: #61be80;
+    text-align:center;
+    padding: 10px;
+    color: white;
+    border-radius: 15px;
+    width: 30px;
+}
+
+.check-text-incorrect {
+    background: #f05d5d !important;
+}
+
+#hints-button {
+    background: #d98f3b;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+}
+.hints-inactive-button {
+    background: #d7bc9e !important;
+}
+#download-button {
+    background: #d37097;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+#auto-check-button {
+    margin: 10px 0px;
+    background: #d27d7d;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+}
+.auto-check-inactive-button {
+    background: #d7bc9e !important;
+}
+
+

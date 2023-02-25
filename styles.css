@@ -1,0 +1,160 @@
+@font-face {
+    font-family: "Comfortaa";
+    src: url("Comfortaa-Medium.ttf")
+}
+
+body {
+    //width: 100%;
+    //height: 100%;
+    font-family: Comfortaa;
+}
+#container {
+    display: table;
+    margin: 50px 50px 0px;
+    //width: 100%;
+    //height: 80%;
+    text-align:left; 
+}
+#board {
+    display: inline-block;
+    background: black;
+    user-select: none;
+    
+    //width: 100%;
+    border: 2px black solid;
+    //aspect-ratio: 1;
+    border-collapse:collapse;
+}
+
+.cell {
+    background: white;
+    color: rgb(136 130 130);
+    text-align: center;
+    font-size: 2vh;
+    height: 7.5vh;
+    min-width: 7vh;
+    //aspect-ratio: 1 / 1;
+    border: 2px black solid;
+    
+}
+.cell:nth-of-type(3), .cell:nth-of-type(6) {
+    border-right: black 4px solid;
+}
+
+.with-down-line {
+    border-bottom: black 4px solid;
+}
+.active-cell {
+    //background: rgb(106 169 203);
+    color: black;
+    //font-weight: 700;
+    font-size: 4vh;
+}
+
+#change-panel {
+    //background: red;
+    display:inline-block;
+    position: absolute;
+    text-align:left;
+    user-select:none;
+    border: 2px solid #6299ae;
+    margin-left: 40px;
+    margin-bottom: -20px;
+    padding: 10px;
+    border-radius: 15px;
+    width: 150px;
+    
+}
+#change-panel > div {
+    
+}
+#change-panel-button {
+    background: #6299ae;
+    padding: 10px;
+    margin-top: 10px;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+}
+#first-to-change, #second-to-change {
+    width: 60px;
+    height: 40px;
+    border: 2px solid #6299ae;
+    border-radius: 15px;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+.arrow {
+    background:#358b67;
+    display: inline-block;
+    padding: 5px 15px;
+    margin: 10px 0px 0px;
+    border-radius: 15px;
+    color: white;
+}
+
+#info {
+    display:table;
+    margin: 60px 0px 0px;
+    user-select: none;
+}
+#wrote {
+    display:inline-block;
+    margin: 0px 10px;
+    background: #5b5e90;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+#check-text {
+    display:inline-block;
+    margin: 0px 10px;
+    background: #61be80;
+    text-align:center;
+    padding: 10px;
+    color: white;
+    border-radius: 15px;
+}
+
+.check-text-incorrect {
+    background: #f05d5d !important;
+}
+
+.white-cell:not(.active-cell) {
+    color: white;
+}
+
+#show-hide-empty-button {
+    display:inline-block;
+    margin: 0px 10px;
+    background: #d98f3b;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+}
+#download-button {
+    display:inline-block;
+    margin: 0px 10px;
+    background: #d37097;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+}
+#clear-fill-all-button {
+    display:inline-block;
+    margin: 10px 10px;
+    background: #699dca;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+}
+#auto-check-button {
+    display:inline-block;
+    margin: 10px 10px;
+    background: #d27d7d;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+}

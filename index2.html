@@ -1,0 +1,156 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta 
+            name="viewport" 
+            content="
+                width=device-width, 
+                initial-scale=1,
+                user-scalable=no"
+        >
+        <link rel="stylesheet" href="style-test.css">
+        
+    </head>
+    <body>
+        <div id="container">
+            <div id="main">
+                <div id="board-outer">
+                    <canvas id="board-canvas"></canvas>
+                </div>
+                <div id="down-panel">
+                    <div id="info">
+                        <div id="wrote">81</div>
+                        <div id="check-text" class="active-check-text">1</div>
+                        
+                    </div>
+                    <div id="numpad">
+                        <div class="numpad-num active-num">1</div>
+                        <div class="numpad-num">2</div>
+                        <div class="numpad-num">3</div>
+                        <div class="numpad-num">4</div>
+                        <div class="numpad-num">5</div>
+                        <div class="numpad-num">6</div>
+                        <div class="numpad-num">7</div>
+                        <div class="numpad-num">8</div>
+                        <div class="numpad-num">9</div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div id="tools-panel">
+                <div id="change-panel">
+                    <div>
+                        <input 
+                        type="radio"
+                        name="change-panel"
+                        id="towers-change"
+                        value="towers"
+                        checked
+                        >
+                        <label for="towers-change">Башни</label>
+                    </div>
+                    <div>
+                        <input 
+                        type="radio"
+                        name="change-panel"
+                        id="rows-change"
+                        value="rows"
+                        >
+                        <label for="rows-change">Ряды</label>
+                    </div>
+                    <div>
+                        <input 
+                        type="radio"
+                        name="change-panel"
+                        id="columns-change"
+                        value="columns"
+                        >
+                        <label for="columns-change">Столбцы</label>
+                    </div>
+                    <div>
+                        <input 
+                        type="radio"
+                        name="change-panel"
+                        id="strings-change"
+                        value="strings"
+                        >
+                        <label for="strings-change">Строки</label>
+                    </div>
+                    <div>
+                        <input 
+                        type="radio"
+                        name="change-panel"
+                        id="numbers-change"
+                        value="numbers"
+                        >
+                        <label for="numbers-change">Цифры</label>
+                    </div>
+                    <div>
+                        <input 
+                            id="first-to-change" 
+                            type="number" 
+                            value="1" 
+                            maxlength="1"
+                            min="1"
+                            max="9"
+                            step="1"
+                        >
+                        <input 
+                            id="second-to-change" 
+                            type="number" 
+                            value="2" 
+                            maxlength="1"
+                            min="1"
+                            max="9"
+                            step="1"
+                        >
+                    </div>
+                    <div id="change-panel-button-outer">
+                        <div id="change-panel-button">Поменять</div>
+                    </div>
+                    <div>
+                        <div id="left-right-arrow" class="arrow">
+                            ⇆
+                        </div>
+                        <div id="up-down-arrow" class="arrow">
+                            ⇅
+                        </div>
+                        <div id="turn-arrow" class="arrow">
+                            ⤾
+                        </div>
+                    </div>
+                </div>
+                <div id="modes-panel">
+                    <div 
+                        id="from-finish" 
+                        class="mode-button active-mode-button"
+                    >С конца</div>
+                    <div 
+                        id="from-zero" 
+                        class="mode-button"
+                    >С нуля</div>
+                    <div 
+                        id="by-mosaic" 
+                        class="mode-button"
+                    >По узору</div>
+                </div>
+                <div id="actions-panel">
+                    <div 
+                        id="hints-button" 
+                        class="hints-inactive-button"
+                    >Подсказки</div>
+                    <div 
+                        id="auto-check-button" 
+                        class="auto-check-inactive-button"
+                    >Автопроверка</div>
+                    <div id="download-button">Скачать</div>
+                </div>
+            </div>
+        </div>
+        <script src="getAmountOfSolutions.js"></script>
+        <script src="sudoku.js"></script>
+        <script src="getNewSudoku.js"></script>
+        <script src="mainNew.js"></script>
+    </body>
+</html>
