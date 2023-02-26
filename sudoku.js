@@ -85,8 +85,25 @@ j_values:           for (let j = 0; j < 9; j++) {
             click() {
                 let tryNumber = ViktorSudoku.mosaicPanel.tryNumberElem.value
                 for (let i = 0; i < tryNumber; i++) {
+                    let newSudoku = new Sudoku(9, 0)
+                    newSudoku.fillValues()
+                    ViktorSudoku.boards.mainBoard = newSudoku.mat
                     
+                    let board = ViktorSudoku.boards.getBoardWithZero()
+                    let typeOfSolution = isOnlyOneSolution(board)
+
+                    if (typeOfSolution == 1) {
+                        
+                        //console.log(newSudoku.mat)
+                        ViktorSudoku.boards.mainBoard = newSudoku.mat
+                        ViktorSudoku.info.checkText.activate()
+                        ViktorSudoku.draw('withoutBlue')
+                        return
+                    } else {
+                        ViktorSudoku.info.checkText.disActivate(typeOfSolution)
+                    }
                 }
+                ViktorSudoku.mosaicPanel.tryNumberElem.value = 0
             }
         },
         show() {
@@ -685,7 +702,7 @@ j_values:           for (let j = 0; j < 9; j++) {
         }
         return [indexX, indexY]
     },
-    draw() {
+    draw(mode) {
         
         let board = ViktorSudoku.boards.mainBoard
         let canvas = ViktorSudoku.canvas.elem
@@ -695,7 +712,7 @@ j_values:           for (let j = 0; j < 9; j++) {
         context.clearRect(0, 0, 568, 568)
         ViktorSudoku.drawBorder(context)
         ViktorSudoku.drawGrid(context)
-        if (ViktorSudoku.modes.current == "byMosaic") {
+        if (ViktorSudoku.modes.current == "byMosaic" && mode != "withoutBlue") {
             ViktorSudoku.drawSquares(context, board)
         } else {
             ViktorSudoku.drawNumbers(context, board)
