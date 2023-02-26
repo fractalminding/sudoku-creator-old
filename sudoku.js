@@ -7,6 +7,7 @@ let ViktorSudoku = {
         ViktorSudoku.actions.init()
         ViktorSudoku.info.init()
         ViktorSudoku.changePanel.init()
+        ViktorSudoku.mosaicPanel.init()
 
         ViktorSudoku.info.wrote.update()
         ViktorSudoku.draw()
@@ -66,6 +67,35 @@ j_values:           for (let j = 0; j < 9; j++) {
             //console.log(finishArray)
             //console.log(ViktorSudoku.boards.mainBoard)
             return finishArray
+        }
+    },
+    mosaicPanel: {
+        init() {
+            let elem = document.querySelector("#mosaic-panel")
+            ViktorSudoku.mosaicPanel.elem = elem
+            let tryNumberElem = document.querySelector("#mosaic-try-number")
+            ViktorSudoku.mosaicPanel.tryNumberElem = tryNumberElem
+            ViktorSudoku.mosaicPanel.button.init()
+        },
+        button: {
+            init() {
+                let button = document.querySelector("#mosaic-panel-button")
+                button.onclick = ViktorSudoku.mosaicPanel.button.click
+            },
+            click() {
+                let tryNumber = ViktorSudoku.mosaicPanel.tryNumberElem.value
+                for (let i = 0; i < tryNumber; i++) {
+                    
+                }
+            }
+        },
+        show() {
+            let elem = ViktorSudoku.mosaicPanel.elem
+            elem.style.display = "inline-block"
+        },
+        hide() {
+            let elem = ViktorSudoku.mosaicPanel.elem
+            elem.style.display = "none"
         }
     },
     actions: {
@@ -514,12 +544,14 @@ j_values:           for (let j = 0; j < 9; j++) {
                     if (elem.classList.contains("active-mode-button")) {
                         elem.classList.remove("active-mode-button")
                     }
+                    ViktorSudoku.mosaicPanel.hide()
                 },
                 activate() {
                     let elem = ViktorSudoku.modes.buttons.byMosaic.elem
                     if (!elem.classList.contains("active-mode-button")) {
                         elem.classList.add("active-mode-button")
                     }
+                    ViktorSudoku.mosaicPanel.show()
                     ViktorSudoku.modes.current = "byMosaic"
                 },
                 click() {

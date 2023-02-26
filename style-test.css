@@ -182,4 +182,29 @@ body {
     background: #d7bc9e !important;
 }
 
+#mosaic-panel {
+    display: none;
+    border: 2px solid #6299ae;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    padding: 10px;
+    margin-right: 10px;
+}
 
+#mosaic-panel-button {
+    display: inline-block;
+    background: #f75d5d;
+    padding: 10px;
+    border-radius: 15px;
+    color: white;
+    margin-left: 10px;
+}
+
+#mosaic-try-number {
+    width: 100px;
+    height: 35px;
+    border: 2px solid #6299ae;
+    border-radius: 15px;
+    font-size: 20px;
+    text-align: center;
+}
