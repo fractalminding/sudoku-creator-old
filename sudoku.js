@@ -8,6 +8,8 @@ let ViktorSudoku = {
         ViktorSudoku.info.init()
         ViktorSudoku.changePanel.init()
         ViktorSudoku.mosaicPanel.init()
+        ViktorSudoku.writeTypePanel.init()
+        
 
         ViktorSudoku.info.wrote.update()
         ViktorSudoku.draw()
@@ -85,6 +87,7 @@ j_values:           for (let j = 0; j < 9; j++) {
             click() {
                 let tryNumber = ViktorSudoku.mosaicPanel.tryNumberElem.value
                 for (let i = 0; i < tryNumber; i++) {
+                    console.log('trying')
                     let newSudoku = new Sudoku(9, 0)
                     newSudoku.fillValues()
                     ViktorSudoku.boards.mainBoard = newSudoku.mat
@@ -94,7 +97,7 @@ j_values:           for (let j = 0; j < 9; j++) {
 
                     if (typeOfSolution == 1) {
                         
-                        //console.log(newSudoku.mat)
+                        console.log("created!")
                         ViktorSudoku.boards.mainBoard = newSudoku.mat
                         ViktorSudoku.info.checkText.activate()
                         ViktorSudoku.draw('withoutBlue')
@@ -103,6 +106,7 @@ j_values:           for (let j = 0; j < 9; j++) {
                         ViktorSudoku.info.checkText.disActivate(typeOfSolution)
                     }
                 }
+                console.log("not found =(")
                 ViktorSudoku.mosaicPanel.tryNumberElem.value = 0
             }
         },
@@ -482,6 +486,23 @@ j_values:           for (let j = 0; j < 9; j++) {
             }
         }
     },
+    writeTypePanel: {
+        init() {
+            let elem = document.querySelector("#write-type-panel")
+            ViktorSudoku.writeTypePanel.elem = elem
+        },
+        getCurrent() {
+
+        },
+        show() {
+            elem = ViktorSudoku.writeTypePanel.elem
+            elem.style.display = "inline-block"
+        },
+        hide() {
+            elem = ViktorSudoku.writeTypePanel.elem
+            elem.style.display = "none"
+        }
+    },
     modes: {
         init() {
             ViktorSudoku.modes.current = "fromFinish"
@@ -492,6 +513,7 @@ j_values:           for (let j = 0; j < 9; j++) {
                 ViktorSudoku.modes.buttons.fromFinish.init()
                 ViktorSudoku.modes.buttons.fromZero.init()
                 ViktorSudoku.modes.buttons.byMosaic.init()
+                ViktorSudoku.modes.buttons.handSolving.init()
             },
             fromFinish: {
                 init() {
@@ -579,11 +601,42 @@ j_values:           for (let j = 0; j < 9; j++) {
                     ViktorSudoku.info.wrote.update()
                 }
             },
+            handSolving: {
+                init() {
+                    ViktorSudoku.modes.buttons.handSolving.elem = 
+                        document.querySelector("#hand-solving")
+                    let elem = ViktorSudoku.modes.buttons.handSolving.elem
+                    elem.onclick = ViktorSudoku.modes.buttons.handSolving.click
+                },
+                disActivate() {
+                    let elem = ViktorSudoku.modes.buttons.handSolving.elem
+                    if (elem.classList.contains("active-mode-button")) {
+                        elem.classList.remove("active-mode-button")
+                    }
+                    ViktorSudoku.writeTypePanel.hide()
+                },
+                activate() {
+                    let elem = ViktorSudoku.modes.buttons.handSolving.elem
+                    if (!elem.classList.contains("active-mode-button")) {
+                        elem.classList.add("active-mode-button")
+                    }
+                    ViktorSudoku.writeTypePanel.show()
+                    ViktorSudoku.modes.current = "handSolving"
+                },
+                click() {
+                    ViktorSudoku.modes.buttons.disActivateAll()
+                    ViktorSudoku.modes.buttons.handSolving.activate()
+                    ViktorSudoku.numPad.hide()
+                    //ViktorSudoku.boards.clear()
+                    ViktorSudoku.info.wrote.update()
+                }
+            },
             disActivateAll() {
                 let buttons = ViktorSudoku.modes.buttons
                 buttons.fromFinish.disActivate()
                 buttons.fromZero.disActivate()
                 buttons.byMosaic.disActivate()
+                buttons.handSolving.disActivate()
             }
         }
     },
