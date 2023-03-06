@@ -856,7 +856,7 @@ j_values:           for (let j = 0; j < 9; j++) {
         context.moveTo(566, 566)
         context.lineTo(566, 0)
         context.moveTo(566, 2)
-        context.lineTo(2, 0)
+        context.lineTo(0, 2)
         context.stroke()
     },
     drawGrid(context) {
