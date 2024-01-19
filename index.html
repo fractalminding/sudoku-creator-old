@@ -8,20 +8,74 @@
                 initial-scale=1,
                 user-scalable=no"
         >
-        <link rel="stylesheet" href="styles.css">
-        <!-- <script src="html2canvas.min.js"></script> -->
+        <link rel="stylesheet" href="style-test.css">
+        
     </head>
     <body>
         <div id="container">
             <div id="main">
-                <table id="board"></table>
+                <div id="board-outer">
+                    <canvas id="board-canvas"></canvas>
+                </div>
+                <div id="down-panel">
+                    <div id="info">
+                        <div id="wrote">81</div>
+                        <div id="check-text" class="active-check-text">1</div>
+                        
+                    </div>
+                    <div id="numpad">
+                        <div class="numpad-num active-num">1</div>
+                        <div class="numpad-num">2</div>
+                        <div class="numpad-num">3</div>
+                        <div class="numpad-num">4</div>
+                        <div class="numpad-num">5</div>
+                        <div class="numpad-num">6</div>
+                        <div class="numpad-num">7</div>
+                        <div class="numpad-num">8</div>
+                        <div class="numpad-num">9</div>
+                    </div>
+                    <div id="mosaic-panel">
+                        <input 
+                            id="mosaic-try-number" 
+                            type="number" 
+                            value="10" 
+                            maxlength="1"
+                            min="1"
+                            max="1000"
+                            step="1"
+                        >
+                        <div id="mosaic-panel-button">Поиск</div>
+                    </div>
+                </div>
+                <div id="down2-panel">
+                    <div id="write-type-panel">
+                        <input 
+                            type="radio"
+                            name="write-type-panel"
+                            id="write-type-final"
+                            value="final"
+                            checked
+                        >
+                        <label for="write-type-final">Число</label>
+                        <input 
+                            type="radio"
+                            name="write-type-panel"
+                            id="write-type-note"
+                            value="note"
+                        >
+                        <label for="write-type-note">Заметка</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="tools-panel">
                 <div id="change-panel">
                     <div>
                         <input 
                         type="radio"
                         name="change-panel"
                         id="towers-change"
-                        value="1"
+                        value="towers"
                         checked
                         >
                         <label for="towers-change">Башни</label>
@@ -31,7 +85,7 @@
                         type="radio"
                         name="change-panel"
                         id="rows-change"
-                        value="2"
+                        value="rows"
                         >
                         <label for="rows-change">Ряды</label>
                     </div>
@@ -40,7 +94,7 @@
                         type="radio"
                         name="change-panel"
                         id="columns-change"
-                        value="3"
+                        value="columns"
                         >
                         <label for="columns-change">Столбцы</label>
                     </div>
@@ -49,7 +103,7 @@
                         type="radio"
                         name="change-panel"
                         id="strings-change"
-                        value="4"
+                        value="strings"
                         >
                         <label for="strings-change">Строки</label>
                     </div>
@@ -58,7 +112,7 @@
                         type="radio"
                         name="change-panel"
                         id="numbers-change"
-                        value="5"
+                        value="numbers"
                         >
                         <label for="numbers-change">Цифры</label>
                     </div>
@@ -97,21 +151,40 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div id="info">
-                <div id="wrote">81</div>
-                <div id="check-text">Корректно</div>
-                <div id="show-hide-empty-button">Вкл/выкл подсказки</div>
-                <!-- <div id="download-button">Скачать</div> -->
-                <div>
-                    <div id="clear-fill-all-button">Внести/очистить всё</div>
-                    <div id="auto-check-button">Вкл/выкл автопроверку</div>
+                <div id="modes-panel">
+                    <div 
+                        id="from-finish" 
+                        class="mode-button active-mode-button"
+                    >С конца</div>
+                    <div 
+                        id="from-zero" 
+                        class="mode-button"
+                    >С нуля</div>
+                    <div 
+                        id="by-mosaic" 
+                        class="mode-button"
+                    >По узору</div>
+                    <div 
+                        id="hand-solving" 
+                        class="mode-button"
+                    >Решать</div>
+                </div>
+                <div id="actions-panel">
+                    <div 
+                        id="hints-button" 
+                        class="hints-inactive-button"
+                    >Подсказки</div>
+                    <div 
+                        id="auto-check-button" 
+                        class="auto-check-inactive-button"
+                    >Автопроверка</div>
+                    <div id="download-button">Скачать</div>
                 </div>
             </div>
-            
         </div>
-        
+        <script src="getAmountOfSolutions.js"></script>
+        <script src="sudoku.js"></script>
+        <script src="getNewSudoku.js"></script>
         <script src="main.js"></script>
     </body>
 </html>
