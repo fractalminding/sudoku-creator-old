@@ -826,6 +826,7 @@ j_values:           for (let j = 0; j < 9; j++) {
     drawNumbers(context, board) {
         context.beginPath()
         context.font = "40px Roboto-Light"
+        //context.font = "40px Comfortaa"
         //console.log(context.font)
         for (let y in board) {
             for (let x in board) {
